@@ -1,0 +1,127 @@
+easy_admin:
+    design:
+       
+
+       menu:
+          - label: "Admin"
+            icon: "user"
+            children:
+                - {entity: Admin , label: "Admin list" , icon: "th-list"}
+                - {entity: Admin , label: "Add Admin"  , icon: "plus" , params:{action: "new"}}
+
+          - label: "Teacher"
+            icon: "user"
+            children:
+               - {entity: Teacher , label: "Teacher list" ,icon: "th-list"}
+               - {entity: Teacher , label: " Add Teacher " ,icon: "plus" , params:{action: "new"}}
+          - label: "Student"
+            icon: "user"
+            children: 
+               - {entity: Student , label: "Student list" , icon: "th-list"}
+               - { entity: Student , label: " Add Student " ,icon: "plus" , params:{action: "new"} }
+          
+
+    site_name: 'CoursUniversty'
+    user:
+       display_name: true
+       display_avatar: true
+       name_property_path: 'firstname'
+    entities:
+       # List the entity class name you want to manage
+       Admin:
+           class: App\Entity\Admin
+           label: "Admin"
+           form:
+               fields:
+               - {type: 'group' , icon: 'pencil', label: 'Basic Information ', css_class: 'col-lg-7'}
+               - name
+               - first_name
+               - identity_card
+               - email
+               - address 
+               - phone_number 
+               - {type: 'group' , icon: 'th_list', label: 'Other Information ', css_class: 'col-lg-5'}
+               - {property: Date_ofB , label: "date of birth"}
+               - created_at 
+               - password
+               - username
+           list:
+                fields:
+                   - id
+                   - name
+                   - first_name
+                   - identity_card
+                   - email
+                   - address 
+                   - phone_number
+           show: 
+                fields:
+                    - id
+                    - name
+                    - email
+                    - first_name
+                    - createdAt
+                    - price
+                    - phone_number
+       Student:
+           class: App\Entity\Student
+           form:
+                fields:
+                   - {type: 'group' , icon: 'pencil', label: 'Basic Information ', css_class: 'col-lg-7'}
+                   - name
+                   - first_name
+                   - email
+                   - address 
+                   - phone_number 
+                   - {type: 'group' , icon: 'th_list', label: 'Other Information ', css_class: 'col-lg-5'}
+                   - {property: Date_ofB , label: "date of birth"}
+                   - created_at 
+           list:
+                fields:
+                   - id
+                   - name
+                   - first_name
+                   - identity_card
+                   - email
+                   - address 
+                   - phone_number
+           show: 
+                fields:
+                    - id
+                    - name
+                    - email
+                    - first_name
+                    - createdAt
+                    - price
+                    - phone_number
+       Teacher:
+          class: App\Entity\Teacher
+          form:
+               fields:
+                   - {type: 'group' , icon: 'pencil', label: 'Basic Information ', css_class: 'col-lg-7'}
+                   - name
+                   - first_name
+                   - email
+                   - address 
+                   - phone_number 
+                   - {type: 'group' , icon: 'th_list', label: 'Other Information ', css_class: 'col-lg-5'}
+                   - {property: Date_ofB , label: "date of birth"}
+                   - created_at 
+          list:
+                fields:
+                   - id
+                   - name
+                   - first_name
+                   - identity_card
+                   - email
+                   - address 
+                   - phone_number
+          show: 
+                fields:
+                    - id
+                    - name
+                    - email
+                    - first_name
+                    - createdAt
+                    - price
+                    - phone_number
